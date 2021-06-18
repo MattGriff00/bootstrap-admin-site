@@ -25,6 +25,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -159,22 +161,16 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="container-fluid">
+          <div class="container-fluid" id="report">
             <!-- Page Heading -->
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-              <a
-                href="#"
-                class="
-                  d-none d-sm-inline-block
-                  btn btn-sm btn-primary
-                  shadow-sm
-                "
-                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
-                Report</a
-              >
+              <button class="btn btn-primary" onclick="generatePDF()">
+                <i class="fas fa-download fa-sm text-white-50"></i>
+                Download as PDF
+              </button>
             </div>
             <!-- Content Row -->
             <div class="row justify-content-center">
@@ -320,5 +316,14 @@
     <script src="js/demo/export-donut-chart.js"></script>
     <script src="js/demo/import-donut-chart.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+
+    <script>
+      function generatePDF() {
+        // Choose the element that our invoice is rendered in.
+        const element = document.getElementById("report");
+        // Choose the element and save the PDF for our user.
+        html2pdf(element);
+      }
+    </script>
   </body>
 </html>
