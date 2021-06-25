@@ -32,13 +32,13 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     datasets: [{
-      label: "Revenue",
+      label: "Unemployment",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [5.6, 5.7, 7.9, 13.1, 13.7, 12.5, 10.9, 10.2, 9.2, 9.0, 8.6, 8.8],
     }],
   },
   options: {
@@ -68,16 +68,12 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 15,
           maxTicksLimit: 5,
           padding: 10,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
-          }
         },
         gridLines: {
-          color: "rgb(234, 236, 244)",
+          color: "rgb(168, 186, 255)",
           zeroLineColor: "rgb(234, 236, 244)",
           drawBorder: false,
           borderDash: [2],
@@ -100,12 +96,6 @@ var myBarChart = new Chart(ctx, {
       yPadding: 15,
       displayColors: false,
       caretPadding: 10,
-      callbacks: {
-        label: function(tooltipItem, chart) {
-          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-        }
-      }
     },
   }
 });
